@@ -14,7 +14,6 @@
 
 defineProps<{
     title: string;
-    contentClass?: string;
 }>();
 
 
