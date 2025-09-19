@@ -1,14 +1,13 @@
 <template>
     <div class="relative group/tooltip">
-        <a v-if="props.tag == 'a' && props.href" 
-            :class="`${classes} ${$attrs.class}`" 
+        <a v-if="props.tag == 'a' && props.href"
+            :class="btnClass" 
             :href="props.href"
-            target="_blank"
-        >
+            :target="props.target">
             <slot />
         </a>
         <button v-else 
-            :class="`${classes} ${$attrs.class}`">
+            :class="btnClass">
             <slot />
         </button>
         <span
@@ -18,12 +17,15 @@
     </div>
 </template>
 <script setup lang="ts">
-const classes =
-    "flex bg-indigo-500 hover:opacity-90 text-indigo-100 py-2.5 px-4 rounded-lg";
-
 const props = defineProps<{
-    label: string;
+    label?: string;
     tag: string;
     href?: string;
+    target?: string;
+    class?: string;
 }>();
+
+const btnClass =
+    `flex hover:opacity-90 text-indigo-100 rounded-lg ${props.class}`;
+// bg-indigo-500 py-2.5 px-4 
 </script>
