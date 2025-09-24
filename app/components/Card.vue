@@ -1,5 +1,5 @@
 <template>
-    <a :class="`block group border-2 border-gray-700 hover:border-gray-300/30 rounded-xl sm:hover:-translate-y-1 transition duration-300 ease-in-out`"
+    <a :class="`block group border-2 border-gray-700 hover:border-gray-300/30 rounded-xl sm:hover:-translate-y-1 transition duration-200 ease-in-out`"
         :href="props.href">
         <article class="relative flex flex-col justify-between w-full py-6 px-7">
             <h2 class="text-gray-200 text-lg font-bold">
