@@ -7,7 +7,7 @@
             <div v-if="showDiv"
                 class="flex w-12 h-12 relative opacity-0 -translate-y-10 items-center bg-gray-700/60 rounded-full shadow-md border-4 border-gray-900/80 transition-all duration-300 ease-out"
                 :class="{ 'opacity-100 translate-y-0': animation }">
-                <img src="@/assets/images/avatar.webp" alt="photo profile"
+                <img src="@/assets/images/avatarListenToMusic.png" alt="photo profile"
                     class="rounded-full drop-shadow-2xl absolute inset-0 object-cover" />
                 <p class="ml-14 font-semibold text-lg whitespace-nowrap text-slate-300">
                     Richard Cortez
