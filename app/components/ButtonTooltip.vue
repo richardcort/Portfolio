@@ -1,13 +1,18 @@
 <template>
     <div class="relative group/tooltip">
-        <a v-if="props.tag == 'a' && props.href"
-            :class="btnClass" 
+        <a v-if="props.tag === 'a' && props.href"
             :href="props.href"
-            :target="props.target">
+            :class="btnClass"
+            :aria-label="label"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
             <slot />
         </a>
         <button v-else 
-            :class="btnClass">
+            :class="btnClass"
+            :aria-label="label"    
+        >
             <slot />
         </button>
         <span
@@ -17,15 +22,19 @@
     </div>
 </template>
 <script setup lang="ts">
+import { computed } from 'vue';
+
 const props = defineProps<{
     label?: string;
     tag: string;
     href?: string;
-    target?: string;
     class?: string;
 }>();
 
-const btnClass =
-    `flex hover:opacity-90 text-indigo-100 rounded-lg ${props.class}`;
+const label = props.label ?? ''
+
+const btnClass = computed(() => {
+    return `flex hover:opacity-90 text-indigo-100 rounded-lg ${props.class}`;
+})
 // bg-indigo-500 py-2.5 px-4 
 </script>
