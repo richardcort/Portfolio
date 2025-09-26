@@ -34,7 +34,7 @@ const props = defineProps<{
 const label = props.label ?? ''
 
 const btnClass = computed(() => {
-    return `flex hover:opacity-90 text-indigo-100 rounded-lg ${props.class}`;
+    return `flex hover:opacity-90 text-indigo-100 rounded-lg py-2.5 px-4 ${props.class}`;
 })
 // bg-indigo-500 py-2.5 px-4 
 </script>
