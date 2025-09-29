@@ -24,8 +24,12 @@ const props = defineProps<{
 const color = props.color ?? "text-white/80";
 
 const computedClasses = computed(() => {
-    const baseClasses = 'flex items-center gap-3 font-bold px-4 h-16 rounded-xl border-2 border-white/10 hover:border-4 duration-100 transition-shadow'
+    const baseClasses = `
+        flex items-center gap-3 font-bold px-4 h-16 rounded-xl border-2 border-white/10
+        transition-shadow duration-200 ease-in-out
+        hover:shadow-[0_0_0_2px_rgba(255,255,255,0.1)]
+    `;
 
-    return `${baseClasses} ${color} ${ useAttrs().class ?? ''}`.trim()
-})
+    return `${baseClasses} ${color} ${useAttrs().class ?? ''}`.trim();
+});
 </script>
