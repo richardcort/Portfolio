@@ -2,7 +2,7 @@
     <div class="relative group/tooltip">
         <a v-if="props.tag === 'a' && props.href"
             :href="props.href"
-            :class="btnClass"
+            :class="baseClass"
             :aria-label="label"
             target="_blank"
             rel="noopener noreferrer"
@@ -10,8 +10,9 @@
             <slot />
         </a>
         <button v-else 
-            :class="btnClass"
-            :aria-label="label"    
+            :class="baseClass"
+            :aria-label="label" 
+            @click="emit('click', $event)"
         >
             <slot />
         </button>
@@ -22,19 +23,19 @@
     </div>
 </template>
 <script setup lang="ts">
-import { computed } from 'vue';
-
 const props = defineProps<{
     label?: string;
     tag: string;
     href?: string;
-    class?: string;
+    customClass?: string;
 }>();
+
+const emit = defineEmits(['click']);
 
 const label = props.label ?? ''
 
-const btnClass = computed(() => {
-    return `flex hover:opacity-90 text-indigo-100 rounded-lg py-2.5 px-4 ${props.class}`;
+const baseClass = computed(() => {
+    return `flex hover:opacity-90 text-indigo-100 rounded-lg ${props.customClass}`;
 })
 // bg-indigo-500 py-2.5 px-4 
 </script>
