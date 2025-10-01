@@ -123,6 +123,8 @@ import hmtl from '@/components/icons/html.vue';
 import github from '@/components/icons/github.vue';
 import linkedin from '@/components/icons/linkedin.vue';
 import Link from '~/components/Link.vue';
+import postgresql from '@/components/icons/postgresql.vue';
+import prisma from '~/components/icons/prisma.vue';
 
 const projects = [
     {
@@ -135,6 +137,17 @@ const projects = [
             { name: 'Html', icon: hmtl },
         ]
     },
+    {
+        title: 'SGBI - Sistema de Gestion de Bienes Integral',
+        description: 'System for the management of institutional assets',
+        href: 'https://github.com/Utech17/SGBIV2.git',
+        technologies: [
+            { name: 'TypeScript', icon: typeScript },
+            { name: 'PostgreSQL', icon: postgresql },
+            { name: 'Nest', icon: nest },
+            { name: 'Prisma', icon: prisma },
+        ]
+    }
 ];
 
 const links = [
