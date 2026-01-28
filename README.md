@@ -73,3 +73,23 @@ bun run preview
 ```
 
 Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+
+## Docker Support
+
+### Prerequisites
+- Docker and Docker Compose installed.
+- Create `.env.development` and `.env.production` files (use templates if available).
+
+### Development Environment
+Runs the app in development mode with hot-reloading. The app will be available at `http://localhost:3000`.
+
+```bash
+docker-compose up --build
+```
+
+### Production Environment
+Runs the app in production mode (optimized build). The app will be available at `http://localhost:80`.
+
+```bash
+docker-compose -f docker-compose.prod.yml up --build
+```
