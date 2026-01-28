@@ -1,23 +1,22 @@
-#
-FROM node:22-alpine
+# Base stage
+FROM node:22-alpine AS base
 WORKDIR /app
-
-# Keep NODE_ENV for runtime
-ENV NODE_ENV=production
-ENV PORT=3000
-
-EXPOSE 3000
-
-# Install dependencies, copy source, build, and run preview server
+# Install dependencies into a temp directory to leverage caching
 COPY package*.json ./
-RUN npm install
+RUN npm install && npm cache clean --force
 
-# Copy app sources
+# Development stage
+FROM base AS development
+
+# In dev, we mount the volume so we don't copy source code here regularly, 
+# but we need it for the initial build if not mounted.
 COPY . .
+CMD ["npm", "run", "dev"]
 
-# Build the Nuxt app
+# Production stage
+FROM base AS production
+
+COPY . .
 RUN npm run build
-
-# Use Nuxt's preview server to serve the built app
+EXPOSE 3000
 CMD ["npm", "run", "preview"]
-

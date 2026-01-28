@@ -1,0 +1,23 @@
+{
+    "name": "My Portfolio (Simple)",
+    // Build the devcontainer using docker-compose
+    "dockerComposeFile": [
+        "../docker-compose.yml"
+    ],
+    "service": "app",
+    "workspaceFolder": "/app",
+    "forwardPorts": [
+        3000
+    ],
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "dbaeumer.vscode-eslint",
+                "esbenp.prettier-vscode"
+            ]
+        }
+    },
+    "remoteUser": "node",
+    "postCreateCommand": "npm run preview",
+    "shutdownAction": "stopCompose"
+}
