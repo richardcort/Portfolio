@@ -1,7 +1,7 @@
 <template>
     <div class="mx-auto max-w-3xl sticky top-0 z-10">
         <header :class="[
-            'backdrop-blur-lg bottom-0 static flex items-center py-1 px-5 z-20 bg-gray-800/80 text-slate-200',
+            'backdrop-blur-lg bottom-0 static flex items-center py-1 px-5 z-20 bg-white/80 dark:bg-gray-800/80 text-slate-800 dark:text-slate-200',
             justify ? 'justify-between' : 'justify-end'
         ]">
             <div v-if="showDiv"
@@ -33,7 +33,16 @@ const showDiv = computed(() => scrollY.value > 210)
 const justify = computed(() => scrollY.value > 210)
 
 const onScroll = () => { scrollY.value = window.scrollY }
-const switchTheme = () => { theme.value = !theme.value }
+const switchTheme = () => { 
+    theme.value = !theme.value
+    if (theme.value) {
+        document.documentElement.classList.add('dark')
+        localStorage.setItem('theme', 'dark')
+    } else {
+        document.documentElement.classList.remove('dark')
+        localStorage.setItem('theme', 'light')
+    }
+}
 
 watch(scrollY, (newVal) => {
     if (newVal > 210) {
@@ -48,6 +57,15 @@ watch(scrollY, (newVal) => {
 onMounted(() => {
     window.addEventListener('scroll', onScroll)
     console.log('header mounted')
+    
+    // Check for saved theme or system preference
+    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        theme.value = true
+        document.documentElement.classList.add('dark')
+    } else {
+        theme.value = false
+        document.documentElement.classList.remove('dark')
+    }
 })
 
 onUnmounted(() => {

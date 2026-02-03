@@ -1,6 +1,6 @@
 <template>
     <input 
-        class="bg-white/5 w-full py-1.5 px-3 rounded-xl grid place-items-center text-slate-300"
+        class="bg-gray-100 dark:bg-white/5 w-full py-1.5 px-3 rounded-xl grid place-items-center text-slate-800 dark:text-slate-300"
         :type="inputType"
         :value="props.value" 
         :disabled="props.disabled"

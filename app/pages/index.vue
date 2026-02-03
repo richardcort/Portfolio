@@ -9,10 +9,10 @@
                 </div>
                 <div class="flex flex-col items-center sm:items-start gap-3">
                     <div class="flex flex-col items-left gap-2">
-                        <h1 class="text-2xl sm:text-4xl text-center sm:text-left font-bold text-slate-100">
+                        <h1 class="text-2xl sm:text-4xl text-center sm:text-left font-bold text-slate-900 dark:text-slate-100">
                             Richard Cortez
                         </h1>
-                        <p class="text-slate-300 text-sm sm:text-lg max-w-xl rounded-2xl">
+                        <p class="text-slate-600 dark:text-slate-300 text-sm sm:text-lg max-w-xl rounded-2xl">
                             I'm a passionate Back-End Developer.
                         </p>
                     </div>
@@ -25,7 +25,7 @@
                 </div>
             </template>
         </Section>
-        <hr class="border border-dotted border-gray-600 rounded-md">
+        <hr class="border border-dotted border-gray-300 dark:border-gray-600 rounded-md">
         <Section title="Experience">            
             <template #icon>
                 <IconsBrief />
@@ -34,10 +34,10 @@
                 <div class="flex flex-col gap-10">
                     <div class="flex flex-col gap-5">
                         <div class="flex flex-col gap-1">
-                            <h2 class="text-lg font-semibold text-slate-200">Jr Back-End Developer • Alcaldia de
+                            <h2 class="text-lg font-semibold text-slate-800 dark:text-slate-200">Jr Back-End Developer • Alcaldia de
                                 Iribarren</h2>
                         </div>
-                        <ul class="list-disc flex flex-col gap-2 ml-5 text-gray-300 text-base">
+                        <ul class="list-disc flex flex-col gap-2 ml-5 text-gray-600 dark:text-gray-300 text-base">
                             <li>January 2025 - Present</li>
                             <li>Developed and integrated backend modules using NestJS, TypeScript, Prisma, and PostgreSQL.</li>
                             <li>Optimized and refactored stored procedures and SQL views to improve performance and data consistency.</li>

@@ -2,7 +2,7 @@
 
 </script>
 <template>
-    <body class="bg-gray-800 pb-0 sm:pb-6">
+    <div class="bg-gray-50 dark:bg-gray-800 pb-0 sm:pb-6 min-h-screen">
         <slot />
-    </body>
+    </div>
 </template>
