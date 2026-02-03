@@ -4,7 +4,7 @@
             <template #content>
                 <div class="relative w-44 h-44 bg-gray-700/60 border-8 border-gray-900/80 shadow-lg rounded-full overflow-hidden">
                     <span style="profile">
-                        <img src="@/assets/images/avatarListenToMusic.png" alt="photo profile">
+                        <img :src="currentAvatar" alt="photo profile" class="w-full h-full object-cover transition-all duration-500 ease-in-out">
                     </span>
                 </div>
                 <div class="flex flex-col items-center sm:items-start gap-3">
@@ -125,6 +125,9 @@ import linkedin from '@/components/icons/linkedin.vue';
 import Link from '~/components/Link.vue';
 import postgresql from '@/components/icons/postgresql.vue';
 import prisma from '~/components/icons/prisma.vue';
+import { useAvatar } from '@/composables/useAvatar';
+
+const { currentAvatar } = useAvatar();
 
 const projects = [
     {
